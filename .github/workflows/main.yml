@@ -25,7 +25,9 @@ jobs:
           target: Android
       - name: Build Mod
         run: |
-          cmake -B build -DCMAKE_BUILD_TYPE=Release -DGEODE_TARGET=${{ matrix.config.target }} -DGEODE_DONT_CHOOSE_PROFILE=1
+          geode profile create default || true
+          geode profile select default || true
+          cmake -B build -DCMAKE_BUILD_TYPE=Release -DGEODE_TARGET=${{ matrix.config.target }}
           cmake --build build --config Release
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
