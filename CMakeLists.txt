@@ -1,20 +1,18 @@
 cmake_minimum_required(VERSION 3.13)
 
-# Esta línea le enseña a CMake dónde instaló Geode el script de GitHub
+# Esto le enseña a GitHub Actions dónde está el SDK de Geode
 list(APPEND CMAKE_PREFIX_PATH $ENV{GEODE_SDK})
 
-project(mi_primer_mod_menu)
+# Aquí pones el nombre exacto de tu mod
+project(xdmod)
 
 find_package(Geode REQUIRED)
 
 add_geode_mod(
     ${PROJECT_NAME}
-    VERSION 1.0.0
-    SDK_VERSION 3.0.0-beta.1
-    
-    RESOURCES
-        logo.png
-    
-    CODE
-        src/main.cpp
+    VERSION v1.0.0
 )
+
+# Esto le dice al compilador dónde está tu código principal
+target_sources(${PROJECT_NAME} PRIVATE src/main.cpp)
+
