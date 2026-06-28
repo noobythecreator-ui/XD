@@ -1,31 +1,8 @@
-name: Build Geode Mod
-on: [push, pull_request]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake ninja-build
-
       - name: Build
         run: |
-          # Descargar la CLI oficial
           curl -L https://github.com/geode-sdk/cli/releases/latest/download/geode-linux -o geode
           chmod +x geode
+          # Usamos ./geode en lugar de solo geode
           ./geode sdk setup --android
-          ./geode package build --target Android
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Mod-Android
-          path: "*.geode"
+          ./geode package build --no-compile --output .
           
