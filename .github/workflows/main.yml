@@ -6,32 +6,25 @@ on:
   pull_request:
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - name: Android
-            id: android
-            target: Android
-            os: ubuntu-latest
-    name: ${{ matrix.config.name }}
-    runs-on: ${{ matrix.config.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Setup Geode SDK
-        uses: geode-sdk/setup-geode@main
-        with:
-          target: Android
+      - name: Install Geode CLI
+        run: |
+          curl -L https://github.com/geode-sdk/cli/releases/latest/download/geode-linux -o geode
+          chmod +x geode
+          sudo mv geode /usr/local/bin/
 
       - name: Build Mod
         run: |
-          geode package build --target ${{ matrix.config.target }}
+          geode sdk setup --android
+          geode package build --no-compile-check
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.config.id }}-mod
+          name: my-mod
           path: "*.geode"
           
