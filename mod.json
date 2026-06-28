@@ -1,9 +1,8 @@
-
 {
     "geode": "3.0.0-beta.1",
     "version": "v1.0.0",
     "id": "noobythecreator.xdmod",
-    "name": "XDmod",
+    "name": "xdmod",
     "developer": "noobythecreator",
-    "description": "a imple mod"
+    "description": "A simple custom mod menu"
 }
