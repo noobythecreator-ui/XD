@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.13)
 
-set(GEODE_DONT_INCLUDE_DEFAULT_SRC TRUE)
+# Esta línea le enseña a CMake dónde instaló Geode el script de GitHub
+list(APPEND CMAKE_PREFIX_PATH $ENV{GEODE_SDK})
 
 project(mi_primer_mod_menu)
 
