@@ -1,23 +1,9 @@
+
 {
-	"geode": "3.0.0-beta.1",
-	"id": "noobythecreator.xd",
-	"version": "1.0.0",
-	"name": "XD",
-	"developer": "noobythecreator",
-	"description": "a mod that makes life easier.",
-	"dependencies": [
-		{
-			"id": "geode.loader",
-			"version": ">=3.0.0-beta.1",
-			"importance": "required"
-		}
-	],
-	"settings": {
-		"xd": {
-			"name": "Noclip",
-			"description": "It makes you invincible.",
-			"type": "bool",
-			"default": false
-		}
-	}
+    "geode": "3.0.0-beta.1",
+    "version": "v1.0.0",
+    "id": "noobythecreator.xdmod",
+    "name": "XDmod",
+    "developer": "noobythecreator",
+    "description": "a imple mod"
 }
